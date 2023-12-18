@@ -1,29 +1,68 @@
--- Set highlight on search
-vim.o.hlsearch = false
+
+vim.opt.smartindent = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.linespace = 10
+vim.opt.expandtab = true
 
 -- Make line numbers default
-vim.wo.number = true
-vim.wo.relativenumber = true
+vim.opt.number = true
+vim.opt.relativenumber = true
 
 -- Enable mouse mode
-vim.o.mouse = 'a'
+vim.opt.mouse = a
 
--- Enable break indent
-vim.o.breakindent = true
+vim.opt.cursorline = true
+vim.opt.cursorcolumn = true
+
+-- split windows to the right and bottom
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
 -- Case-insensitive searching UNLESS \C or capital in search
-vim.o.ignorecase = true
-vim.o.smartcase = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+vim.opt.fixendofline = false
+
+
+vim.opt.backup = false
+vim.opt.swapfile = false
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
+
+vim.opt.scrolloff = 2
+vim.opt.sidescroll = 4
+
+-- Write before some operations
+vim.opt.autowrite = true
+
+vim.opt.wrap = false
+
+-- Decrease update time and timeoutlen
+vim.opt.updatetime = 750
+vim.opt.timeoutlen = 750
+
+vim.opt.foldmethod = 'indent'
+
+-- Set highlight on search
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+
+-- Enable break indent
+vim.opt.breakindent = true
 
 -- Keep signcolumn on by default
-vim.wo.signcolumn = 'yes'
-
--- Decrease update time
-vim.o.updatetime = 750
-vim.o.timeoutlen = 750
+vim.opt.signcolumn = 'yes'
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+vim.opt.completeopt = 'menuone,noselect'
 
 -- Konsole terminal doesn't support this yet
 -- vim.o.termguicolors = true
+
+vim.opt.softtabstop = 4
+
+vim.opt.isfname:append("@-@")
+
+vim.opt.colorcolumn = "80"
