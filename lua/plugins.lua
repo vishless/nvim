@@ -29,6 +29,9 @@ local plugins = {
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
+  -- Display buffer name at the top
+  { 'ap/vim-buftabline' },
+
   -- Useful plugin to show you pending keybinds.
   --{ 'folke/which-key.nvim', opts = {} },
 
