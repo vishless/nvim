@@ -23,7 +23,8 @@ local plugins = {
   'tpope/vim-rhubarb',
 
   -- Theme
-  { 'sainnhe/gruvbox-material'},
+  --{ 'sainnhe/gruvbox-material'},
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
@@ -127,7 +128,7 @@ local plugins = {
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'gruvbox',
+        theme = 'catppuccin',
         component_separators = '|',
         section_separators = '',
       },
