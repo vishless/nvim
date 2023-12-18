@@ -22,12 +22,16 @@ local plugins = {
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
 
+  -- Detect tabstop and shiftwidth automatically
+  { 'tpope/vim-sleuth' },
+
+  -- rails plugin
+  { 'tpope/vim-rails' },
+
   -- Theme
   --{ 'sainnhe/gruvbox-material'},
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
-  -- Detect tabstop and shiftwidth automatically
-  'tpope/vim-sleuth',
 
   -- Display buffer name at the top
   { 'ap/vim-buftabline' },
