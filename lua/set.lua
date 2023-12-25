@@ -43,7 +43,7 @@ vim.opt.wrap = false
 vim.opt.updatetime = 750
 vim.opt.timeoutlen = 750
 
-vim.opt.foldmethod = 'indent'
+vim.opt.foldmethod = false
 
 -- Set highlight on search
 vim.opt.hlsearch = false
@@ -65,4 +65,5 @@ vim.opt.softtabstop = 4
 
 vim.opt.isfname:append("@-@")
 
-vim.opt.colorcolumn = "80"
+-- 120 is the max line width recommended by rubocop
+vim.opt.colorcolumn = "120"
