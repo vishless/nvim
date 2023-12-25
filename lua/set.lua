@@ -43,7 +43,7 @@ vim.opt.wrap = false
 vim.opt.updatetime = 750
 vim.opt.timeoutlen = 750
 
-vim.opt.foldmethod = false
+vim.opt.foldmethod = 'manual'
 
 -- Set highlight on search
 vim.opt.hlsearch = false
