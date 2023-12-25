@@ -22,6 +22,8 @@ local plugins = {
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
 
+  { 'tpope/vim-vinegar' },
+
   -- Detect tabstop and shiftwidth automatically
   { 'tpope/vim-sleuth' },
 
@@ -116,14 +118,14 @@ local plugins = {
           return '<Ignore>'
         end, { expr = true, desc = 'Jump to previous hunk' })
 
-        map('n', '<leader>hd', gs.diffthis, { desc = 'git diff against index' })
-        map('n', '<leader>hD', function()
+        map('n', '<leader>gdi', gs.diffthis, { desc = 'git diff against index' })
+        map('n', '<leader>gdl', function()
           gs.diffthis '~'
         end, { desc = 'git diff against last commit' })
 
         -- Toggles
-        map('n', '<leader>tb', gs.toggle_current_line_blame, { desc = 'toggle git blame line' })
-        map('n', '<leader>td', gs.toggle_deleted, { desc = 'toggle git show deleted' })
+        map('n', '<leader>gb', gs.toggle_current_line_blame, { desc = 'toggle git blame line' })
+        map('n', '<leader>gd', gs.toggle_deleted, { desc = 'toggle git show deleted' })
       end,
     },
   },
