@@ -22,6 +22,8 @@ local plugins = {
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
 
+  'airblade/vim-rooter',
+
   { 'tpope/vim-vinegar' },
 
   -- Detect tabstop and shiftwidth automatically
