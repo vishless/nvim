@@ -125,9 +125,7 @@ local plugins = {
           gs.diffthis '~'
         end, { desc = 'git diff against last commit' })
 
-        -- Toggles
-        map('n', '<leader>gb', gs.toggle_current_line_blame, { desc = 'toggle git blame line' })
-        map('n', '<leader>gd', gs.toggle_deleted, { desc = 'toggle git show deleted' })
+        map('n', '<leader>gd', gs.preview_hunk_inline)
       end,
     },
   },
