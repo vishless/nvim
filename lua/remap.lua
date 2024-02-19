@@ -13,3 +13,5 @@ vim.keymap.set("n", "<leader>nv", vim.cmd.Vexplore)
 -- TODO: Fix this
 --vim.g.netrw_list_hide = "\(^\|\s\s\)\zs\.\S\+"
 
+vim.keymap.set("n", "<leader>do", 'o_ ')
+vim.keymap.set("n", "<leader>ne", '^rx: <Esc>:r! date "+[\\%H:\\%M]"<CR>kJA<Esc>$')
