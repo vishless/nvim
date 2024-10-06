@@ -16,9 +16,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
-
--- c: Suppresses "match 1 of x" messages.
--- I: Suppresses introductory messages and warnings (like deprecated warnings).
--- Mainly to suppress the below treesitter warning:
--- vim.treesitter.get_parser will return nil instead of raising an error in Neovim 0.12
-vim.opt.shortmess:append("cI")
