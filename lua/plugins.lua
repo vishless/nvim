@@ -36,10 +36,6 @@ local plugins = {
   --{ 'sainnhe/gruvbox-material'},
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
-
-  -- Display buffer name at the top
-  { 'ap/vim-buftabline' },
-
   -- Useful plugin to show you pending keybinds.
   --{ 'folke/which-key.nvim', opts = {} },
 
