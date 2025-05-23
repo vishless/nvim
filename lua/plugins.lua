@@ -18,63 +18,59 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
 
-  -- Git related plugins
-  'tpope/vim-fugitive',
-  'tpope/vim-rhubarb',
-
-  'airblade/vim-rooter',
-
-  { 'tpope/vim-vinegar' },
-
   -- Detect tabstop and shiftwidth automatically
   { 'tpope/vim-sleuth' },
-
+  -- Git related plugins
+  { 'tpope/vim-fugitive' },
   -- rails plugin
   { 'tpope/vim-rails' },
 
-  -- Theme
-  --{ 'sainnhe/gruvbox-material'},
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  --  Rooter changes the working directory to the project root when you open a file or directory.
+  { 'airblade/vim-rooter' },
 
+  -- Was replaced by oil.nvim
+  -- { 'tpope/vim-vinegar' },
 
-  -- Display buffer name at the top
-  { 'ap/vim-buftabline' },
-
-  -- Useful plugin to show you pending keybinds.
-  --{ 'folke/which-key.nvim', opts = {} },
-
-  -- NOTE: This is where your plugins related to LSP can be installed.
+  -- Neovim file explorer: edit your filesystem like a buffer
+  -- {
+  --   'stevearc/oil.nvim',
+  --   ---@module 'oil'
+  --   ---@type oil.SetupOpts
+  --   opts = {},
+  --   -- Optional dependencies
+  --   dependencies = { { "echasnovski/mini.icons", opts = {} } },
+  --   -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+  --   -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+  --   lazy = false,
+  -- },
+  
   {
-    -- LSP Configuration & Plugins
-    'neovim/nvim-lspconfig',
-    dependencies = {
-      -- Automatically install LSPs to stdpath for neovim
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-
-      -- Useful status updates for LSP
-      -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
-
-      -- Additional lua configuration, makes nvim stuff amazing!
-      'folke/neodev.nvim',
-    },
+    "stevearc/oil.nvim",
+    opts = {},
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require('nvim-web-devicons').setup()
+      require("oil").setup({
+        default_file_explorer = true,
+      })
+    end,
   },
 
+  -- Themes
+  -- { 'sainnhe/gruvbox-material' },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+
   {
-    -- Autocompletion
-    'hrsh7th/nvim-cmp',
-    dependencies = {
-      -- Snippet Engine & its associated nvim-cmp source
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip',
-
-      -- Adds LSP completion capabilities
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-path',
-
-      -- Adds a number of user-friendly snippets
-      'rafamadriz/friendly-snippets',
+    -- Set lualine as statusline
+    'nvim-lualine/lualine.nvim',
+    -- See `:help lualine.txt`
+    opts = {
+      options = {
+        icons_enabled = false,
+        theme = 'catppuccin',
+        component_separators = '|',
+        section_separators = '',
+      },
     },
   },
 
@@ -130,27 +126,10 @@ local plugins = {
     },
   },
 
-  {
-    -- Set lualine as statusline
-    'nvim-lualine/lualine.nvim',
-    -- See `:help lualine.txt`
-    opts = {
-      options = {
-        icons_enabled = false,
-        theme = 'catppuccin',
-        component_separators = '|',
-        section_separators = '',
-      },
-    },
-  },
 
+  -- Add indentation guides even on blank lines
   {
-    -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help ibl`
-    main = 'ibl',
-    opts = {},
+    'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = {},
   },
 
   -- "gc" to comment visual regions/lines

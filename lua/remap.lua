@@ -6,12 +6,12 @@ vim.g.netrw_banner = 0
 vim.g.netrw_keepdir = 0
 vim.g.netrw_localrmdir='rm -rf'
 
-vim.keymap.set("n", "<leader>nf", vim.cmd.Explore)
-vim.keymap.set("n", "<leader>ns", vim.cmd.Sexplore)
-vim.keymap.set("n", "<leader>nv", vim.cmd.Vexplore)
-
 -- TODO: Fix this
 --vim.g.netrw_list_hide = "\(^\|\s\s\)\zs\.\S\+"
 
 vim.keymap.set("n", "<leader>do", 'o_ ')
 vim.keymap.set("n", "<leader>ne", '^rx: <Esc>:r! date "+[\\%H:\\%M]"<CR>kJA<Esc>$')
+
+-- Oil
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
