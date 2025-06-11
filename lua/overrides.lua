@@ -11,3 +11,12 @@ local function safe_get_parser(bufnr, lang)
 end
 
 vim.treesitter.get_parser = safe_get_parser
+
+-- Disable Tree-sitter in Oil buffers
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "oil",
+  callback = function()
+    vim.treesitter.stop()
+  end,
+})
+
