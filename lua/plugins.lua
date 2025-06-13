@@ -155,15 +155,17 @@ local plugins = {
       },
     },
   },
-
   {
-    -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
     },
     build = ':TSUpdate',
   },
+
+  "neovim/nvim-lspconfig",
+  "hrsh7th/nvim-cmp",
+  "hrsh7th/cmp-nvim-lsp",
 }
 
 local opts = {}
