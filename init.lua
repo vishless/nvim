@@ -41,5 +41,12 @@ vim.keymap.set('n', '<leader>f', ':Pick files<CR>')
 require "oil".setup()
 vim.keymap.set('n', '-', ':Oil<CR>', {desc = 'Open parent directory'})
 
+require("vague").setup({
+    transparent = true,
+    style = {
+        strings = "none",
+    }
+})
+
 vim.cmd("colorscheme vague")
 vim.cmd(":hi statusline guibg=NONE")
