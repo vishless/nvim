@@ -21,6 +21,7 @@ vim.pack.add({
     { src = "https://github.com/stevearc/oil.nvim" },
     { src = "https://github.com/tpope/vim-fugitive" },
     { src = "https://github.com/catppuccin/nvim" },
+    { src = "https://github.com/airblade/vim-gitgutter" },
 })
 
 require('mini.pick').setup()
@@ -43,7 +44,7 @@ vim.keymap.set('n', '<leader>pg', function()
   })
 end, { desc = '[P]roject [G]it files' })
 
-vim.lsp.enable({ "lua_ls", "solargraph" })
+vim.lsp.enable({ "lua_ls", "ruby_lsp" })
 vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
 vim.keymap.set('n', '<leader>ls', vim.diagnostic.open_float)
 
