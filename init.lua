@@ -65,7 +65,7 @@ vim.keymap.set('n', '-', ':Oil<CR>', {desc = 'Open parent directory'})
 
 vim.keymap.set('n', '<leader>gs', ':Git<CR>', { desc = '[G]it [S]tatus' })
 
-vim.keymap.set('n', '<leader>pt', ':TagbarToggle<CR>', { desc = '[G]it [S]tatus' })
+vim.keymap.set('n', '<leader>pt', ':TagbarToggle<CR>', { desc = '[S]how [T]ags' })
 
 vim.cmd("colorscheme catppuccin")
 vim.cmd(":hi statusline guibg=NONE")
