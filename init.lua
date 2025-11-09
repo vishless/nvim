@@ -9,6 +9,7 @@ vim.o.wrap = false
 vim.o.winborder = "rounded"
 vim.o.splitright = true
 vim.o.splitbelow = true
+vim.o.complete = "t"
 
 vim.g.mapleader = " "
 vim.keymap.set('n', '<leader>o', ':update<CR> :source<CR>')
@@ -20,8 +21,8 @@ vim.pack.add({
     { src = "https://github.com/neovim/nvim-lspconfig" },
     { src = "https://github.com/stevearc/oil.nvim" },
     { src = "https://github.com/tpope/vim-fugitive" },
+    { src = "https://github.com/preservim/tagbar" },
     { src = "https://github.com/catppuccin/nvim" },
-    { src = "https://github.com/airblade/vim-gitgutter" },
 })
 
 require('mini.pick').setup()
@@ -44,7 +45,7 @@ vim.keymap.set('n', '<leader>pg', function()
   })
 end, { desc = '[P]roject [G]it files' })
 
-vim.lsp.enable({ "lua_ls", "ruby_lsp" })
+vim.lsp.enable({ "lua_ls", "solargraph", "pylsp"})
 vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
 vim.keymap.set('n', '<leader>ls', vim.diagnostic.open_float)
 
@@ -63,6 +64,8 @@ require "oil".setup()
 vim.keymap.set('n', '-', ':Oil<CR>', {desc = 'Open parent directory'})
 
 vim.keymap.set('n', '<leader>gs', ':Git<CR>', { desc = '[G]it [S]tatus' })
+
+vim.keymap.set('n', '<leader>pt', ':TagbarToggle<CR>', { desc = '[G]it [S]tatus' })
 
 vim.cmd("colorscheme catppuccin")
 vim.cmd(":hi statusline guibg=NONE")
