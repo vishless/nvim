@@ -70,3 +70,6 @@ vim.keymap.set('n', '<leader>gs', ':Git<CR>', { desc = '[G]it [S]tatus' })
 
 vim.cmd("colorscheme catppuccin")
 vim.cmd(":hi statusline guibg=NONE")
+
+vim.keymap.set("n", "<leader>do", 'o_ ')
+vim.keymap.set("n", "<leader>ne", '^rx: <Esc>:r! date "+[\\%H:\\%M]"<CR>kJA<Esc>$')
