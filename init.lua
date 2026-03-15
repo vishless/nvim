@@ -19,7 +19,6 @@ vim.keymap.set('n', '<leader>q', ':quit<CR>')
 
 vim.pack.add({
     { src = "https://github.com/nvim-mini/mini.pick" },
-    { src = "https://github.com/neovim/nvim-lspconfig" },
     { src = "https://github.com/stevearc/oil.nvim" },
     { src = "https://github.com/tpope/vim-fugitive" },
     { src = "https://github.com/catppuccin/nvim" },
@@ -47,21 +46,6 @@ vim.keymap.set('n', '<leader>pg', function()
     options = { prompt = 'Git files' },
   })
 end, { desc = '[P]roject [G]it files' })
-
-vim.lsp.enable({ "lua_ls", "ruby_lsp" })
-vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
-vim.keymap.set('n', '<leader>ls', vim.diagnostic.open_float)
-
--- lsp auto complete
-vim.api.nvim_create_autocmd('LspAttach', {
-    callback = function(ev)
-        local client = vim.lsp.get_client_by_id(ev.data.client_id)
-        if client:supports_method('textDocument/completion') then
-            vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
-        end
-    end,
-})
-vim.cmd("set completeopt+=noselect")
 
 require "oil".setup()
 vim.keymap.set('n', '-', ':Oil<CR>', {desc = 'Open parent directory'})
