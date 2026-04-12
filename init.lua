@@ -50,7 +50,14 @@ end, { desc = '[P]roject [G]it files' })
 require "oil".setup()
 vim.keymap.set('n', '-', ':Oil<CR>', {desc = 'Open parent directory'})
 
-require("claudecode").setup()
+local claude_use_ollama = false
+require("claudecode").setup({})
+vim.keymap.set('n', '<leader>ct', function()
+  claude_use_ollama = not claude_use_ollama
+  local cmd = claude_use_ollama and "ollama launch claude --model gemma4:26b" or nil
+  require("claudecode.terminal").setup(nil, cmd, nil)
+  vim.notify("Claude: " .. (claude_use_ollama and "ollama (gemma4:26b)" or "default"), vim.log.levels.INFO)
+end, { desc = 'Toggle Claude backend' })
 vim.keymap.set('n', '<leader>cc', '<cmd>ClaudeCode<cr>',            { desc = 'Toggle Claude' })
 vim.keymap.set('n', '<leader>cf', '<cmd>ClaudeCodeFocus<cr>',       { desc = 'Focus Claude' })
 vim.keymap.set('n', '<leader>cr', '<cmd>ClaudeCode --resume<cr>',   { desc = 'Resume Claude' })
