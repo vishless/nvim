@@ -1,12 +1,15 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(ollama run:*)",
+      "WebSearch",
+      "Bash(gh repo:*)",
+      "WebFetch(domain:github.com)"
+    ]
+  },
   "enabledMcpjsonServers": [
     "gimp-mcp",
     "inkscape-mcp",
     "blender"
-  ],
-  "permissions": {
-    "allow": [
-      "Bash(ollama run:*)"
-    ]
-  }
+  ]
 }
