@@ -13,9 +13,6 @@ vim.opt.eol = false        -- Don't force newline on write
 vim.opt.fixendofline = false  -- Don't automatically fix missing newline
 
 vim.g.mapleader = " "
-vim.keymap.set('n', '<leader>o', ':update<CR> :source<CR>')
-vim.keymap.set('n', '<leader>w', ':write<CR>')
-vim.keymap.set('n', '<leader>q', ':quit<CR>')
 
 vim.pack.add({
     { src = "https://github.com/nvim-mini/mini.pick" },
@@ -25,6 +22,7 @@ vim.pack.add({
     { src = "https://github.com/airblade/vim-gitgutter" },
     { src = "https://github.com/folke/snacks.nvim" },
     { src = "https://github.com/coder/claudecode.nvim" },
+    { src = "https://github.com/nickjvandyke/opencode.nvim" },
 })
 
 require('mini.pick').setup()
@@ -50,14 +48,14 @@ end, { desc = '[P]roject [G]it files' })
 require "oil".setup()
 vim.keymap.set('n', '-', ':Oil<CR>', {desc = 'Open parent directory'})
 
-local claude_use_ollama = false
+local claude_use_local = false
 require("claudecode").setup({})
-vim.keymap.set('n', '<leader>ct', function()
-  claude_use_ollama = not claude_use_ollama
-  local cmd = claude_use_ollama and "ollama launch claude --model gemma4:26b" or nil
-  require("claudecode.terminal").setup(nil, cmd, nil)
-  vim.notify("Claude: " .. (claude_use_ollama and "ollama (gemma4:26b)" or "default"), vim.log.levels.INFO)
-end, { desc = 'Toggle Claude backend' })
+-- vim.keymap.set('n', '<leader>ct', function()
+--   claude_use_local = not claude_use_local
+--   local env = claude_use_local and { ANTHROPIC_BASE_URL = "http://localhost:8080", ANTHROPIC_API_KEY = "local" } or nil
+--   require("claudecode.terminal").setup(nil, nil, env)
+--   vim.notify("Claude: " .. (claude_use_local and "llama.cpp (localhost:8080)" or "default"), vim.log.levels.INFO)
+-- end, { desc = 'Toggle Claude backend' })
 vim.keymap.set('n', '<leader>cc', '<cmd>ClaudeCode<cr>',            { desc = 'Toggle Claude' })
 vim.keymap.set('n', '<leader>cf', '<cmd>ClaudeCodeFocus<cr>',       { desc = 'Focus Claude' })
 vim.keymap.set('n', '<leader>cr', '<cmd>ClaudeCode --resume<cr>',   { desc = 'Resume Claude' })
@@ -68,6 +66,18 @@ vim.keymap.set('v', '<leader>cs', '<cmd>ClaudeCodeSend<cr>',        { desc = 'Se
 vim.keymap.set('n', '<leader>cs', '<cmd>ClaudeCodeTreeAdd<cr>',     { desc = 'Add file (oil)' })
 vim.keymap.set('n', '<leader>ca', '<cmd>ClaudeCodeDiffAccept<cr>',  { desc = 'Accept diff' })
 vim.keymap.set('n', '<leader>cd', '<cmd>ClaudeCodeDiffDeny<cr>',    { desc = 'Deny diff' })
+
+vim.g.opencode_opts = {}
+vim.o.autoread = true
+vim.keymap.set({ "n", "t" }, "<leader>oc", function()
+  require("opencode").toggle()
+end, { desc = "Toggle opencode" })
+vim.keymap.set({ "n", "x" }, "<leader>oa", function()
+  require("opencode").ask("@this: ", { submit = true })
+end, { desc = "Ask opencode" })
+vim.keymap.set({ "n", "x" }, "<leader>ox", function()
+  require("opencode").select()
+end, { desc = "Execute opencode action" })
 
 vim.keymap.set('n', '<leader>gs', ':Git<CR>', { desc = '[G]it [S]tatus' })
 
