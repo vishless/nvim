@@ -84,5 +84,5 @@ vim.keymap.set('n', '<leader>gs', ':Git<CR>', { desc = '[G]it [S]tatus' })
 vim.cmd("colorscheme catppuccin")
 vim.cmd(":hi statusline guibg=NONE")
 
-vim.keymap.set("n", "<leader>do", 'o[ ] ')
-vim.keymap.set("n", "<leader>ne", '^r[lrxl^r]<Esc>')
+vim.keymap.set("n", "<leader>do", 'o- [ ] ')
+vim.keymap.set("n", "<leader>ne", '^3lrx<Esc>')
